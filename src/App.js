@@ -30,14 +30,13 @@ const body_style = {
   backgroundImage: 'url(' + back_url + ')'
 };
 
-let data = [];
-let i = 0;
-let j = 1;
-let k = 2;
-
 class App extends Component {
   rightHandler = () => {
-    if (data.length === 0) this.fetch();
+    let i = this.state.i;
+    let j = this.state.j;
+    let k = this.state.k;
+    const number = this.state.episodes[i].number;
+    if (number === '0') this.fetch();
     else {
       if (k === 59) {
         i = 0;
@@ -48,12 +47,16 @@ class App extends Component {
         j += 3;
         k += 3;
       }
-      this.setState({ episodes: data._embedded.episodes });
+      this.setState({ i, j, k, episodes: this.state.episodes });
     }
   };
 
   leftHandler = () => {
-    if (data.length === 0) this.fetch();
+    let i = this.state.i;
+    let j = this.state.j;
+    let k = this.state.k;
+    const number = this.state.episodes[i].number;
+    if (number === '0') this.fetch();
     else {
       if (k === 2) {
         i = 57;
@@ -64,7 +67,7 @@ class App extends Component {
         j -= 3;
         k -= 3;
       }
-      this.setState({ episodes: data._embedded.episodes });
+      this.setState({ i, j, k, episodes: this.state.episodes });
     }
   };
 
@@ -73,8 +76,7 @@ class App extends Component {
       const req = await fetch(
         'http://api.tvmaze.com/singlesearch/shows?q=game-of-thrones&embed=episodes'
       );
-      data = await req.json();
-      console.log(data._embedded.episodes.length);
+      const data = await req.json();
       this.setState({ episodes: data._embedded.episodes });
     } catch (e) {
       console.error(e);
@@ -82,6 +84,9 @@ class App extends Component {
   }
 
   state = {
+    i: 0,
+    j: 1,
+    k: 2,
     episodes: [
       {
         image: { original: image_url_den },
@@ -125,9 +130,9 @@ class App extends Component {
             onClick={this.leftHandler}
           />
 
-          <Poster ep={this.state.episodes[i]} />
-          <Poster ep={this.state.episodes[j]} />
-          <Poster ep={this.state.episodes[k]} />
+          <Poster ep={this.state.episodes[this.state.i]} />
+          <Poster ep={this.state.episodes[this.state.j]} />
+          <Poster ep={this.state.episodes[this.state.k]} />
 
           <input
             style={fetch_style}

@@ -3,17 +3,17 @@ import Parser from 'html-react-parser';
 
 const form_container = {
   display: 'flex',
-  flexFlow: 'wrap',
   alignItems: 'center',
-  justifyContent: 'center space-around',
+  justifyContent: 'center',
   flexDirection: 'column',
 
   width: 370,
   height: 450,
-  margin: 5,
+  padding : 5,
   border: '4px solid #8181F7',
   borderRadius: '5%',
-  backgroundColor: '#E3CEF6'
+  backgroundColor: '#E3CEF6',
+  boxShadow: 'inset 5px 5px 50px #000000'
 };
 
 const _icon = {
@@ -24,8 +24,7 @@ const _icon = {
   borderRadius: '20%'
 };
 
-const Poster = ({ ep }) => {
-  return (
+const Poster = ({ ep }) => (
     <div style={form_container}>
       <p style={{ fontSize: 14, color: '#FE9A2E', fontFamily: 'serif' }}>
         {ep.name}
@@ -45,6 +44,5 @@ const Poster = ({ ep }) => {
       </div>
     </div>
   );
-};
 
 export default Poster;

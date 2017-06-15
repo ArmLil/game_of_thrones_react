@@ -15,46 +15,39 @@ const image_url =
 const fetch_style = {
   justifyContent: 'center',
   borderRadius: '10%',
-  border: '1px solid #900',
+  border: '1px solid #FE9A2E',
   backgroundColor: '#E3CEF6',
-  margin: 5,
   height: 50,
-  width: 30
+  width: 30,
+  boxShadow: 'inset 1px 1px 5px #000000'
 };
 
 const body_style = {
   display: 'flex',
-  justifyContent: 'center space-around',
+  padding: '20px',
+  justifyContent: 'space-around',
   alignItems: 'center',
-  flexDirection: 'row',
-  backgroundImage: 'url(' + back_url + ')'
+  
+  backgroundImage: 'url(' + back_url + ')',
+  heigth: '80vh'
 };
 
 class App extends Component {
   rightHandler = () => {
-    let i = this.state.i;
-    let j = this.state.j;
-    let k = this.state.k;
+    let{i,j,k} = this.state;
     const number = this.state.episodes[i].number;
+    let n = this.state.episodes.length - 1;
     if (number === '0') this.fetch();
     else {
-      if (k === 59) {
-        i = 0;
-        j = 1;
-        k = 2;
-      } else {
-        i += 3;
-        j += 3;
-        k += 3;
-      }
-      this.setState({ i, j, k, episodes: this.state.episodes });
+      i = (i+3)%n;
+      j = (j+3)%n;
+      k = (k+ 3)%n;
     }
+      this.setState({ i, j, k, episodes: this.state.episodes });
   };
 
   leftHandler = () => {
-    let i = this.state.i;
-    let j = this.state.j;
-    let k = this.state.k;
+    let{i,j,k} = this.state;
     const number = this.state.episodes[i].number;
     if (number === '0') this.fetch();
     else {
@@ -74,7 +67,7 @@ class App extends Component {
   async fetch() {
     try {
       const req = await fetch(
-        'http://api.tvmaze.com/singlesearch/shows?q=game-of-thrones&embed=episodes'
+        'https://api.tvmaze.com/singlesearch/shows?q=game-of-thrones&embed=episodes'
       );
       const data = await req.json();
       this.setState({ episodes: data._embedded.episodes });

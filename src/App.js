@@ -27,9 +27,9 @@ const body_style = {
   padding: '20px',
   justifyContent: 'space-around',
   alignItems: 'center',
-  
+
   backgroundImage: 'url(' + back_url + ')',
-  heigth: '80vh'
+  heigth: '120vh'
 };
 
 class App extends Component {

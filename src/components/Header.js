@@ -5,10 +5,9 @@ const back_img_url =
 const App_header = {
   display: 'flex',
   alignItems: 'center',
-
+  justifyContent: 'center',
   backgroundImage: 'url(' + back_img_url + ')',
-  height: 100,
-  padding: 20,
+  height: 50,
   color: '#FACC2E',
   height :'20vh'
 };

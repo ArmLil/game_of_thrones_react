@@ -2,25 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import cut from './cutmypic.png';
 
-const Head = styled.div `
-margin: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 20%;
-position: 'fixed';
-border: 2px solid #8181F7;
-background-image: url(${cut});
-padding:10px;
-overflow: hidden;
+const Head = styled.div`
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  position: 'fixed';
+  border: 2px solid #8181F7;
+  background-image: url(${cut});
+  padding:10px;
+  overflow: hidden;
 
-background-position: center;
-background-size: contain;
+  background-position: center;
+  background-size: contain;
 `;
 
-const Title = styled.div `
- margin: 0;
-
+const Title = styled.div`
+  margin: 0;
 	color: #FFD90F;
   font-family: serif;
   white-space: nowrap;
@@ -30,13 +29,11 @@ const Title = styled.div `
                  -1px -1px 2px #B28CBF;
   `;
 
-const Header = () => (
-	<Head>
-		<Title>
-			<h1>Game &nbsp; of &nbsp; Thrones</h1>
-		</Title>
-	</Head>
-
-);
+const Header = () =>
+  <Head>
+    <Title>
+      <h1>Game &nbsp; of &nbsp; Thrones</h1>
+    </Title>
+  </Head>;
 
 export default Header;

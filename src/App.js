@@ -15,10 +15,12 @@ const fetch_url =
   'https://api.tvmaze.com/singlesearch/shows?q=game-of-thrones&embed=episodes';
 
 const Container = styled.div`
-margin: 0;
-border: 1px solid black;
-height: 98vh;
-font-size: 1.2vw;
+  margin: 0;
+  border: 1px solid black;
+  min-width: 800px;
+  min-height: 500px;
+  height: 98vh;
+  font-size:calc(8px + 0.6vw);
 `;
 
 const Body = styled.div`

@@ -12,7 +12,6 @@ const Form = Div.extend`
   position: relative;
   flex-direction: column;
   border: 2px solid #8181F7;
-  overflow: hidden;
   width: 27%;
   height: 90%;
   padding: 1%;
@@ -33,16 +32,17 @@ const Name = styled.h3`
 
 const Episode = styled.h5`
   position: absolute;
-  bottom: 86%;
+  bottom: 82%;
   margin: 0;
-  padding 2px;
   padding: 2%;
   font-family: serif;
 `;
 
 const _icon = {
+  margin: '0',
+  padding: '5px',
   position: 'absolute',
-  bottom: '45%',
+  bottom: '41%',
   width: '80%',
   height: '40%',
   borderRadius: '20%'
@@ -56,10 +56,11 @@ const Data = styled.p`
 `;
 
 const sum = {
+  margin: '0',
+  padding: '10px',
   position: 'absolute',
   bottom: '3%',
   backgroundColor: '#E3CEF6',
-  padding: '10px',
   width: '80%',
   height: '25%',
   overflow: 'scroll'

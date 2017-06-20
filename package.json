@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate-css-styled-components": "^0.0.14",
     "components": "^0.1.0",
     "html-react-parser": "^0.3.3",
     "react": "^15.5.4",

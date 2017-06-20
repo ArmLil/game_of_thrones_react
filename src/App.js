@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Poster from './components/Poster';
 import styled from 'styled-components';
 
+//const loading = 'https://media.giphy.com/media/VlJkP9Vxi4nkI/giphy.gif';
 const image_url_den =
   'http://static2.businessinsider.com/image/574db0acdd0895d3558b45e6-1440/game-of-thrones-dragon-daenerys-7.jpg';
 const image_url_walk =
@@ -56,19 +57,22 @@ const Button = styled.button`
 
 class App extends Component {
   rightHandler = () => {
-    let { i, j, k } = this.state;
-    const number = this.state.episodes[i].number;
-    let n = this.state.episodes.length - 1;
-    if (number === '0') this.fetch();
-    else {
-      i = (i + 3) % n;
-      j = (j + 3) % n;
-      k = (k + 3) % n;
-    }
-    this.setState({ i, j, k, episodes: this.state.episodes });
+      setTimeout(() => {
+        let { i, j, k } = this.state;
+        const number = this.state.episodes[i].number;
+        let n = this.state.episodes.length - 1;
+        if (number === '0') this.fetch();
+        else {
+          i = (i + 3) % n;
+          j = (j + 3) % n;
+          k = (k + 3) % n;
+        }
+        this.setState({ i, j, k, episodes: this.state.episodes });
+      }, 1 * 1000);
   };
 
   leftHandler = () => {
+    setTimeout(() => {
     let { i, j, k } = this.state;
     const number = this.state.episodes[i].number;
     let n = this.state.episodes.length - 1;
@@ -80,6 +84,7 @@ class App extends Component {
       k = (k + n - 3) % n;
     }
     this.setState({ i, j, k, episodes: this.state.episodes });
+  }, 1 * 1000);
   };
 
   async fetch() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import cut from './cutmypic.png';
+import {ZoomIn } from 'animate-css-styled-components';
 
 const Head = styled.div`
   margin: 0;
@@ -30,7 +31,9 @@ const Title = styled.div`
 const Header = () =>
   <Head>
     <Title>
-      <h1>Game &nbsp; of &nbsp; Thrones</h1>
+      <ZoomIn >
+      <h1>  Game &nbsp; of &nbsp; Thrones</h1>
+      </ZoomIn>
     </Title>
   </Head>;
 
